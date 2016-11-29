@@ -1,0 +1,34 @@
+<div class="container">
+	<form [formGroup]="myForm" novalidate (submit)="sendContactForm()">
+		<div class="form-group">
+			<label for="email">{{ 'Name' | translate }}</label>
+			<input type="text" class="form-control" formControlName="name" name="name" [(ngModel)]="name" autofocus />
+			<small [hidden]="myForm.controls.name.valid || myForm.controls.name.pristine" class="text-danger">
+                {{ 'NameRequired' | translate }}
+            </small>
+		</div>
+		<div class="form-group">
+			<label for="email">{{ 'Email' | translate }}</label>
+			<input type="text" class="form-control" formControlName="email" name="email" [(ngModel)]="email" />
+			<small [hidden]="myForm.controls.email.valid || myForm.controls.email.pristine" class="text-danger">
+                {{ 'EmailRequired' | translate }}
+            </small>
+		</div>
+		<div class="form-group">
+			<label for="subject">{{ 'Subject' | translate }}</label>
+			<input type="text" class="form-control" formControlName="subject" name="subject" [(ngModel)]="subject" />
+			<small [hidden]="myForm.controls.subject.valid || myForm.controls.subject.pristine" class="text-danger">
+                {{ 'SubjectRequired' | translate }}
+            </small>
+		</div>
+		<div class="form-group">
+			<label for="notification">{{ 'Message' | translate }}</label>
+			<input type="text" class="form-control" formControlName="notification" name="notification" [(ngModel)]="notification" />
+			<small [hidden]="myForm.controls.notification.valid || myForm.controls.notification.pristine" class="text-danger">
+                {{ 'MessageRequired' | translate }}
+            </small>
+		</div>
+		<p>{{ message }}</p>
+		<button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">{{ 'Send' | translate }}</button>
+	</form>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+	<form [formGroup]="myForm" novalidate (submit)="login()">
+		<div class="form-group">
+			<label for="email">{{ 'Email' | translate }}</label>
+			<input type="text" class="form-control" formControlName="email" name="email" [(ngModel)]="email" autofocus />
+			<small [hidden]="myForm.controls.email.valid || myForm.controls.email.pristine" class="text-danger">
+                {{ 'EmailRequired' | translate }}
+            </small>
+		</div>
+		<div class="form-group">
+			<label for="password">{{ 'Password' | translate }}</label>
+			<input type="text" class="form-control" formControlName="password" name="password" [(ngModel)]="password" minlength="5" />
+			<small [hidden]="myForm.controls.password.valid || myForm.controls.password.pristine" class="text-danger">
+                {{ 'PasswordRequired' | translate }}
+            </small>
+		</div>
+		<p>{{ message }}</p>
+		<button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">{{ 'Login' | translate }}</button>
+	</form>
+</div>

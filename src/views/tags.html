@@ -1,0 +1,10 @@
+<h1>{{ 'Tags' | translate }}</h1>
+<p>{{ message }}</p>
+<div class="list-group">
+  <ul>
+    <p class="bg-info" *ngFor="let c of cats">
+      {{ c.text }}
+      <br /> - {{ c.description }}
+    </p>
+  </ul>
+</div>
